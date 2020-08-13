@@ -1,0 +1,27 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* CUSTOM CSS (ADD YOUR CSS HERE!) */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+a, a:hover, a:focus{
+    text-decoration: none!important;
+}
+.yamm .nav > li:hover > a {
+    border-top: 3px solid #c9222e;
+}
+
+.nav > li > a:hover, .nav > li > a:focus{
+    color: #c9222e;
+    background-color: transparent;
+}
+
+.yamm .nav > li:hover  .color_primary{
+    color: #c9222e;   
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: none repeat scroll 0 0 #c9222e!important;
+}
+.services.bg_transparent.bg_9:after {
+     height: 100%;
+}
