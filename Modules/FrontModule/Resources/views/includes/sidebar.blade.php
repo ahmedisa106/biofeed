@@ -2,14 +2,15 @@
 
     <aside class="sidebar">
         <div class="widget widget-search">
-            <form method="get" class="form-search clearfix" id="search-global-form">
-                <input class="form-search__input" type="text" name="" id="search2" placeholder="Search Product / Medicine ...">
+            <form method="get" class="form-search clearfix" id="search-global-form" action="{{route('front.search')}}">
+                @csrf
+                <input class="form-search__input" type="text" name="search" value="{{Request()->search}}" id="search2" placeholder="@lang('frontmodule::site.search_product')">
                 <button class="form-search__submit" type="submit"><i class="icon icon-magnifier"></i></button>
             </form>
         </div><!-- end widget-search -->
 
         <div class="widget widget-category">
-            <h3 class="widget-title">companies</h3>
+            <h3 class="widget-title">@lang('frontmodule::site.companies')</h3>
             <div class="block_content">
                 <ul class="list-categories list-categories_widget">
                     @foreach($companies   as $company )

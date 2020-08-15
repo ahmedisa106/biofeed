@@ -8,6 +8,8 @@
 
 @include('frontmodule::includes.css')
 
+
+
 </head>
 
 <body>
@@ -18,7 +20,11 @@
 
     @yield('content')
 
-
+    <a href="https://api.whatsapp.com/send?phone=+2001001481916&text= "
+       class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"
+        ></i>
+    </a>
 
    @include('frontmodule::includes.footer')
 

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h1>ABOUT US</h1>
+                    <h1>@lang('frontmodule::site.about')</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="{{route('front.index')}}"><i class="icon icon-home color_primary"></i></a></li>
-                        <li class="active">About us</li>
+                        <li class="active">@lang('frontmodule::site.about')</li>
                     </ol>
                 </div>
             </div>
@@ -29,10 +29,10 @@
     </div><!-- end breadcrumb -->
 
     <main class="main-content">
-        <div class="container">
-            <section class="section-large bg" style="background-image: url('public/images/pages/{{$about->photo}}') ; background-repeat: no-repeat">
+        <div class="container ">
+            <section class="section-large bg " style="background-image: url('../public/images/pages/{{$about->photo}}') ; background-repeat: no-repeat">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-6">
+                    <div class="col-md-6 col-md-offset-6 pull-right">
                         <div class="padd_left_70">
 {{--                            <h2 class="title-steps">We Offer--}}
 {{--                                <span class="step-1">Fast & Reliable</span>--}}
@@ -61,7 +61,7 @@
                     <div class="col-sm-4">
                         <section class="advantages__inner">
                             <i class="icon flaticon-medical51"></i>
-                            <h2 class="ui-title-inner color_white">Company mission</h2>
+                            <h2 class="ui-title-inner color_white">@lang('frontmodule::site.company_mission')</h2>
                             <i class="decor-brand"></i>
                             <p class="ui-text text-center color_white">{{$config['mission']}}</p>
                         </section>
@@ -69,7 +69,7 @@
                     <div class="col-sm-4">
                         <section class="advantages__inner">
                             <i class="icon flaticon-medical109"></i>
-                            <h2 class="ui-title-inner color_white">Company vision</h2>
+                            <h2 class="ui-title-inner color_white">@lang('frontmodule::site.company_vision')</h2>
                             <i class="decor-brand"></i>
                             <p class="ui-text text-center color_white">{{$config['vision']}}</p>
                         </section>
@@ -77,7 +77,7 @@
                     <div class="col-sm-4">
                         <section class="advantages__inner">
                             <i class="icon flaticon-healthcare6"></i>
-                            <h2 class="ui-title-inner color_white">Objectives</h2>
+                            <h2 class="ui-title-inner color_white">@lang('frontmodule::site.objective')</h2>
                             <i class="decor-brand"></i>
                             <p class="ui-text text-center color_white">{{$config['objective']}}</p>
                         </section>

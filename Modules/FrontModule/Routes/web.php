@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::group(
-//    [
-//        'prefix' => LaravelLocalization::setLocale(),
-//        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
-//    ], function () {
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+    ], function () {
 
     Route::prefix('')->name('front.')->group(function () {
         Route::get('/', 'FrontModuleController@index')->name('index');
@@ -31,11 +31,16 @@
 
         //company_products Page
         Route::get('/company_products/{id}', 'FrontModuleController@company_product')->name('company');
+        //search
+        Route::get('/search','FrontModuleController@search')->name('search');
+//        Blog
+
+        Route::get('/blog','FrontModuleController@blog')->name('blog');
 
 
 
     });
 
-//});
+});
 
 

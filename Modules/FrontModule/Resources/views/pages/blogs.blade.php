@@ -34,13 +34,15 @@
         <div class="row">
             <div class="col-md-9">
                 <main class="main-content">
-                    @foreach($partners as $partner )
+                    @foreach($blogs as $blog)
                         <article class="post wow bounceInUp" data-wow-delay=".5s">
                             <div class="entry-main">
 
-                                <div class="hover__figure">   <img src="{{asset('/images/partners/'.$partner->photo)}}" height="320" width="770" alt="Foto" style="max-height: 300px;"></div>
+                                <div class="hover__figure">   <img src="{{asset('images/blog/'.$blog->photo)}}" height="320" width="770" alt="Foto" style="max-height: 300px;"></div>
 
-                                <h2 class="entry-title">{{$partner->link}}</h2>
+                                <h2 class="entry-title">{{$blog->title}}</h2>
+                                <div class="entry-content ui-text">{!! $blog->description !!}</div>
+
 
 
                             </div><!-- end entry-main -->
@@ -53,7 +55,7 @@
                     <div class="text-center">
                         <ul class="pagination">
 
-                            {{$partners->links()}}
+                            {{$blogs->links()}}
 
                         </ul>
                     </div>

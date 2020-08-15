@@ -1,3 +1,5 @@
+
+
 <!-- Loader Landing Page -->
 <div id="ip-container" class="ip-container">
     <!-- initial header -->
@@ -43,19 +45,19 @@
                 <div class="btn-group languages">
                     <button type="button" class="btn_languages dropdown-toggle" data-toggle="dropdown">
                         <i class="icon_globe-2"></i>
-                        langs
+                        @lang('frontmodule::site.langs')
                         <span class="caret color_primary"></span>
                     </button>
 
-{{--                    <ul class="dropdown-menu">--}}
-{{--                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                            <li>--}}
-{{--                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                                    {{ $properties['native'] }}--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
+                    <ul class="dropdown-menu">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li>
+                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
 
                 </div>
                 <a href="tel:">
@@ -77,19 +79,17 @@
         <div class="header-inner">
             <div class="row">
                 <div class="col-md-4 col-xs-12">
-                    <a href="index.html" class="logo">
+                    <a href="{{route('front.index')}}" class="logo">
                         <img class="logo__img" src="{{asset('/assets/front')}}/img/bfi_logo-2.png"  alt="Logo">
                     </a>
                 </div>
-                <div class="col-md-8 col-xs-12">
-                    <form class="hidden-md hidden-lg text-center" id="search-global-mobile" method="get" action="{{route('front.index')}}">
-                        @csrf
-
-                        <input type="search" value="" id="search-mobile" name="search">
-                        <button type="submit">
-                            <i class="icon fa fa-search"></i></button>
-                    </form>
-                </div>
+{{--                <div class="widget widget-search">--}}
+{{--                    <form method="get" class="form-search clearfix" id="search-global-form" action="{{route('front.search')}}">--}}
+{{--                        @csrf--}}
+{{--                        <input class="form-search__input" type="text" name="search" value="{{Request()->search}}" id="search2" placeholder="@lang('frontmodule::site.search_product')">--}}
+{{--                        <button class="form-search__submit" type="submit"><i class="icon icon-magnifier"></i></button>--}}
+{{--                    </form>--}}
+{{--                </div><!-- end widget-search -->--}}
             </div>
         </div><!-- end header-inner-->
     </div><!-- end container-->
@@ -110,43 +110,44 @@
                         <div id="navbar-collapse-1" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="{{route('front.index')}}">Home</a>
+                                    <a href="{{route('front.index')}}">@lang('frontmodule::site.home')</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('front.about')}}">ABOUT</a>
+                                    <a href="{{route('front.about')}}">@lang('frontmodule::site.about')</a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#">
-                                        companies
+                                        @lang('frontmodule::site.companies')
                                         <b class="caret color_primary"></b>
                                     </a>
                                     <ul role="menu" class="dropdown-menu" style="display: none;">
                                         @foreach($companies  as $company )
-                                            <li> <a href="{{route('front.company',$company->id)}}"> {{$company->title}}</a> </li>
+                                            <li class="company"> <a href="{{route('front.company',$company->id)}}"> {{$company->title}}</a> </li>
 
                                         @endforeach
 
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Blog</a>
+                                    <a href="{{route('front.blog')}}">@lang('frontmodule::site.blog')</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">
-                                        SHOP
+                                    <a href="{{route('front.blog')}}">
+                                        @lang('frontmodule::site.shop')
                                         <b class="caret color_primary"></b>
                                     </a>
                                     <ul role="menu" class="dropdown-menu" style="display: none;">
-                                        <li> <a href="{{route('front.shop')}}"> shop </a> </li>
-                                        <li class="li-last"> <a href="{{route('front.partners')}}"> partners</a> </li>
+                                        <li> <a href="{{route('front.shop')}}"> @lang('frontmodule::site.shop') </a> </li>
+                                        <li class="li-last"> <a href="{{route('front.partners')}}"> @lang('frontmodule::site.partners')</a> </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{route('front.contact')}}">CONTACT</a>
+                                    <a href="{{route('front.contact')}}">@lang('frontmodule::site.contact')</a>
                                 </li>
                             </ul>
-                            <form id="search-global-menu" class="hidden-xs hidden-sm" method="get">
-                                <input type="text" value="" id="search" name="s" >
+                            <form id="search-global-menu" class="hidden-xs hidden-sm" method="get" action="{{route('front.search')}}">
+                                @csrf
+                                <input type="text" value="{{Request()->search}}" id="search" name="search" >
                                 <button type="submit">
                                     <i class="icon-magnifier"></i>
                                 </button>

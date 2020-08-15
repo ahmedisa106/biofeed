@@ -9,8 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h1>ONLINE shop</h1>
-                    <div class="ui-subtitle-page">Egestas dolor erat vamus suscip ipsum estduin</div>
+                    <h1>@lang('frontmodule::site.shop')</h1>
+{{--                    <div class="ui-subtitle-page">Egestas dolor erat vamus suscip ipsum estduin</div>--}}
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <div class="col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="javascript:void(0);"><i class="icon icon-home color_primary"></i></a></li>
-                        <li class="active">Shop Main</li>
+                        <li class="active">@lang('frontmodule::site.shop')</li>
                     </ol>
                 </div>
             </div>
@@ -60,24 +60,15 @@
 
                             <ul class="products">
                                 @foreach($products as $product )
-
-                                <li class="products__item wow bounceInRight" data-wow-delay=".5s">
-                                    <a class="products__foto helper" href="{{route('front.product',$product->id)}}">
-                                        <img src="{{asset('images/products/'.$product->photo)}}" height="276" width="158" alt="Goods">
-                                    </a>
-                                    <h4 class="products__name"><a href="{{route('front.product',$product->id)}}">{{$product->title}}</a><i class="icon icon-heart"></i></h4>
-{{--                                    <div class="products__info ui-text">{!! $product->description !!}</div>--}}
-{{--                                    <div class="price-block clearfix">--}}
-{{--                                        <span class="price-block__discount">-20%</span>--}}
-{{--                                        <span class="price-block__price">${{$product->price}}</span>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="products__btn text-center">--}}
-{{--                                        <button class="btn"><i class="icon icon-basket-loaded"></i> Add to cart</button>--}}
-{{--                                    </div>--}}
-{{--                                    <span class="products__label">SALE</span>--}}
-                                </li>
-
+                                    <div class="departments-item wow bounceInLeft" data-wow-delay="1s" style="min-height: 400px; ">
+                                        <span class=" bg-color_second helper"><img src="{{asset('images/products/'.$product->photo)}}" style="min-height: 200px; max-height: 200px;"></span>
+                                        <h3 class="ui-title-inner">{{$product->title}}</h3>
+                                        {{--                                <p class="ui-text">{!! $product->description !!}</p>--}}
+                                        <a class="btn btn_small" href="{{route('front.product',$product->id)}}">@lang('frontmodule::site.load_more')</a>
+                                    </div>
                                 @endforeach
+
+
 
                             </ul><!-- end products -->
 
@@ -93,28 +84,28 @@
     </div><!-- end container -->
 
 
-    <section class="subscribe bg bg_3 bg_transparent color_white wow zoomIn" data-wow-delay="1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="subscribe__inner clearfix">
-                        <div class="pull-left">
-                            <h2 class="subscribe__title">Subscribe to Newsletter</h2>
-                            <p class="subscribe__text">Get healthy news and solutions to your problems from our experts!</p>
-                        </div>
-                        <div class="pull-right">
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Your email address here ...">
-                                    <input class="btn bg-color_primary" type="submit" value="SIGN UP">
-                                </div>
-                            </form>
-                            <p class="subscribe__note">* We respect your privacy</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- end subscribe -->
+{{--    <section class="subscribe bg bg_3 bg_transparent color_white wow zoomIn" data-wow-delay="1s">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-xs-12">--}}
+{{--                    <div class="subscribe__inner clearfix">--}}
+{{--                        <div class="pull-left">--}}
+{{--                            <h2 class="subscribe__title">Subscribe to Newsletter</h2>--}}
+{{--                            <p class="subscribe__text">Get healthy news and solutions to your problems from our experts!</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="pull-right">--}}
+{{--                            <form class="form-inline" role="form">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <input class="form-control" type="email" placeholder="Your email address here ...">--}}
+{{--                                    <input class="btn bg-color_primary" type="submit" value="SIGN UP">--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                            <p class="subscribe__note">* We respect your privacy</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section><!-- end subscribe -->--}}
 
 @endsection

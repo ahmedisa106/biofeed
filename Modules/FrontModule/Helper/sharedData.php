@@ -3,8 +3,10 @@
 
 namespace Modules\FrontModule\Helper;
 
+use Modules\BlogModule\Entities\BlogCategory;
 use Modules\ConfigModule\Entities\Config;
 use Modules\ProductModule\Entities\ProductCategory;
+use Modules\WidgetsModule\Entities\Page;
 use Modules\WidgetsModule\Entities\Partner;
 
 class sharedData
@@ -32,6 +34,22 @@ class sharedData
     public static function getCompanies(){
 
         return  ProductCategory::with('products')->get();
+
+    }
+
+    public static function getAbout()
+    {
+
+        return Page::whereTranslation('title','about')->first();
+
+    }
+
+    public static function getBlogCategory(){
+
+        return BlogCategory::with('blogs')->get();
+    }
+
+    public static function getActive($route){
 
     }
 

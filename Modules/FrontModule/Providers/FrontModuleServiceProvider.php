@@ -24,10 +24,14 @@ class FrontModuleServiceProvider extends ServiceProvider
 
         $config =sharedData::getconfig();
         $companies = sharedData::getCompanies();
-        view()->composer('*',function ($view) use ($config,$companies){
+        $about  = sharedData::getAbout();
+        $blogCategories = sharedData::getBlogCategory();
+        view()->composer('*',function ($view) use ($config,$companies,$about,$blogCategories){
 
         $view->with('config',$config);
         $view->with('companies',$companies);
+        $view->with('about',$about);
+        $view->with('blogCategories',$blogCategories);
 
         });
     }

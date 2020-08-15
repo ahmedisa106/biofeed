@@ -204,7 +204,7 @@
                                     @foreach($products  as $product )
                                         <li class="products__item wow bounceInRight" data-wow-delay="1s">
                                             <a class="products__foto helper" href="{{route('front.product',$product->id)}}">
-                                                <img src="{{asset('images/products/'.$product->photo)}}" height="276" width="158" alt="Goods">
+                                                <img src="{{asset('images/products/'.$product->photo)}}"  alt="Goods" style=" min-height: 200px; max-height: 200px; ">
                                             </a>
                                             <h4 class="products__name"><a href="{{route('front.product',$product->id)}}">{{$product->title}}</a><i class="icon icon-heart"></i></h4>
 {{--                                            <div class="products__info ui-text">{!! $product->description !!}</div>--}}

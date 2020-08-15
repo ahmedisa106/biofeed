@@ -5,6 +5,8 @@ namespace Modules\FrontModule\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\BlogModule\Entities\Blog;
+use Modules\BlogModule\Entities\BlogCategory;
 use Modules\ProductModule\Entities\Product;
 use Modules\ProductModule\Entities\ProductCategory;
 use Modules\ServiceModule\Entities\ServiceCategory\ServiceCategory;
@@ -14,6 +16,7 @@ use Modules\WidgetsModule\Entities\Page;
 use Modules\WidgetsModule\Entities\Partner;
 use Modules\WidgetsModule\Entities\Slider\Slider;
 use Modules\WidgetsModule\Entities\Team\Team;
+use Modules\WidgetsModule\Entities\Testimonial;
 use Modules\WidgetsModule\Entities\WhyUs;
 
 class FrontModuleController extends Controller
@@ -23,14 +26,23 @@ class FrontModuleController extends Controller
      * @return Response
      */
 
+    public function search(Request $request)
+    {
+
+        $products  = Product::when($request->search ,function ($q) use($request){
+
+           return $q->whereTranslationLike('title','%'.$request->search.'%');
+
+        })->paginate(10);
+
+
+
+        return view('frontmodule::pages.search',compact('products'));
+    }
 
     public function index()
     {
-//        $s_products = ProductCategory::when($request->search , function ($q) use($request){
-//
-//           return $q->whereTransalionLike('title','%'.$request->serch.'%');
-//
-//        })->latest()->paginate(10);
+
 
 
         $sliders = Slider::with('translations')->get();
@@ -38,8 +50,9 @@ class FrontModuleController extends Controller
         $why_us = WhyUs::with('translations')->get();
         $products  = Product::with('translations')->take(6)->get();
         $services = Service::with('service_category')->get();
+        $comments = Testimonial::all();
 
-        return view('frontmodule::index',compact('sliders','teams','why_us','products','services'));
+        return view('frontmodule::index',compact('sliders','teams','why_us','products','services','comments'));
     }
 
     public function partners()
@@ -61,12 +74,23 @@ class FrontModuleController extends Controller
     {
 
         $products = Product::where('id', '!=', $id)->orderByRaw('RAND()')->take(3)->get();
-        $product = Product::with('product_photo')->findOrFail($id);
+        $product = Product::with('product_photo','translation')->findOrFail($id);
 
 
         return view('frontmodule::pages.product', compact('product', 'products'));
 
     }
+
+
+    public function blog()
+    {
+        $blogs = Blog::with('translation')->paginate(5);
+
+        return view('frontmodule::pages.blogs',compact('blogs'));
+
+    }
+
+
 
     public function contact_us()
     {

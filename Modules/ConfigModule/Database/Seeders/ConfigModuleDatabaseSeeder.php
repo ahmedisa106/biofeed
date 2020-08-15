@@ -204,7 +204,20 @@ class ConfigModuleDatabaseSeeder extends Seeder
         //////////////////////////////////////////////////////////////////////////////////////
         ///  Contact  ///////////////////////////////////////////////////////////////////////
 
-
+        $config::create([
+            'is_static' => 1,
+            'static_value' => '0123456789',
+            'ar' => [
+                'display_name' => 'العنوان',
+                'value' => 'dsadas',
+            ],
+            'en' => [
+                'display_name' => 'address',
+            ],
+            'var' => 'address',
+            'type' => 1,
+            'category_id' => 3,
+        ]);
 
         $config::create([
             'is_static' => 1,
@@ -214,9 +227,9 @@ class ConfigModuleDatabaseSeeder extends Seeder
                 'value' => 'dsadas',
             ],
             'en' => [
-                'display_name' => 'linked_in',
+                'display_name' => 'linked in',
             ],
-            'var' => 'linked_in',
+            'var' => 'linked_id',
             'type' => 1,
             'category_id' => 3,
         ]);
@@ -258,7 +271,7 @@ class ConfigModuleDatabaseSeeder extends Seeder
                 'display_name' => 'العنوان',
             ],
             'en' => [
-                'display_name' => 'address',
+                'dispaly_name' => 'address',
 
             ],
             'type' => 1,
