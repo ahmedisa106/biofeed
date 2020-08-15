@@ -7,7 +7,7 @@
                     <section class="footer__section">
                         <h2 class="footer__title">@lang('frontmodule::site.about')</h2>
                         <i class="decor-brand decor-brand_footer"></i>
-                        <p>{!! $about->content !!}</p>
+{{--                        <p>{!! $about->content !!}</p>--}}
                         <address class="footer__contacts"><i class="footer__icon icon-pointer color_primary"></i>{{$config['address']}}</address>
                         <p class="footer__contacts"><i class="footer__icon icon-call-in color_primary"></i>{{$config['phone']}}</p>
                         <p class="footer__contacts"><i class="footer__icon icon-envelope-open color_primary"></i>{{$config['email']}}</p>
@@ -60,7 +60,7 @@
 
 
             <li>
-                <a target="_blank" href="{{$config['linked_in']}}">
+                <a target="_blank" href="{{$config['linked_id']}}">
                     <i class="social_icons social_linkedin_square"></i>
                 </a>
             </li>

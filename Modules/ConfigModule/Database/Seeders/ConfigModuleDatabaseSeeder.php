@@ -229,7 +229,7 @@ class ConfigModuleDatabaseSeeder extends Seeder
             'en' => [
                 'display_name' => 'linked in',
             ],
-            'var' => 'linked_id',
+            'var' => 'linked_in',
             'type' => 1,
             'category_id' => 3,
         ]);
@@ -271,7 +271,7 @@ class ConfigModuleDatabaseSeeder extends Seeder
                 'display_name' => 'العنوان',
             ],
             'en' => [
-                'dispaly_name' => 'address',
+                'display_name' => 'address',
 
             ],
             'type' => 1,
