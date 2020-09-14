@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePermissionTables extends Migration
 {
-   
+
     public function up()
     {
         $tableNames = config('permission.table_names');

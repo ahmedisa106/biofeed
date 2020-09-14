@@ -25,7 +25,7 @@
 
 
                     <li>
-                        <a target="_blank" href="{{$config['linked_id']}}">
+                        <a target="_blank" href="{{$config['linked_in']}}">
                             <i class="social_icons social_linkedin_square"></i>
                         </a>
                     </li>
